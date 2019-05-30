@@ -1,0 +1,39 @@
+Example by:
+https://programacion.net/articulo/selects_dependientes_utilizando_jquery-_ajax_y_php_1740 
+
+
+1) Crear una base de datos llamada: location_db y allí ejecutar:
+
+CREATE TABLE IF NOT EXISTS `countries` (
+  `country_id` int(11) NOT NULL,
+  `country_name` varchar(30) CHARACTER SET utf8 NOT NULL,
+  `status` tinyint(1) NOT NULL DEFAULT '1' COMMENT '0:Blocked, 1:Active'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS `states` (
+  `state_id` int(11) NOT NULL,
+  `state_name` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
+  `country_id` int(11) NOT NULL,
+  `status` tinyint(1) NOT NULL DEFAULT '1' COMMENT '0:Blocked, 1:Active'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+
+CREATE TABLE IF NOT EXISTS `cities` (
+  `city_id` int(11) NOT NULL,
+  `city_name` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
+  `state_id` int(11) NOT NULL,
+  `status` tinyint(1) NOT NULL DEFAULT '1' COMMENT '0:Blocked, 1:Active'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+
+CREATE TABLE IF NOT EXISTS `companies` (
+  `company_id` int(11) NOT NULL,
+  `company_name` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
+  `city_id` int(11) NOT NULL,
+  `stock_productos` int(255) NOT NULL,
+  `dinero_productos` int(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+INSERT INTO `companies` (`company_id`, `company_name`, `city_id`, `stock_productos`, `dinero_productos`) VALUES ('2', 'Reyes SAS', '2', '200000', '200000000');
+
+
